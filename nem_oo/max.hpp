@@ -1,5 +1,6 @@
 ﻿#ifndef _MAX_HPP
 #define _MAX_HPP
+#include <cmath>
 /**
  * file max.hpp
  * (UTF-8 kodolasu fajl. Allitsa at a megjenetes kodolasat,
@@ -21,7 +22,24 @@
 
 #include "nem_oo.h"
 
+namespace sajat{
+    template <typename T>
+    T max(T a, T b){
+        return (a > b) ? a : b;
+    }
 
+    //struct Komplex
+    //{
+     //   double valos;
+     //   double kepzetes;
+    //};
+
+
+    template <>
+    sajat::Komplex max(sajat::Komplex a, sajat::Komplex b) {
+    return (absKomplex(a) > absKomplex(b)) ? a : b;
+}
+}
 
 
 

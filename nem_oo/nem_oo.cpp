@@ -14,23 +14,9 @@
  *   Tipp: Használja a scope operátort, vagy nyisson névteret!
  */
 
+namespace sajat{
 
-
-/**
- * Saját atoi.
- * Számjegyeket tartalmazó karaktersorozat átalakítása int-re.
- * Helyes számjegysorozat végét white space, vagy sztring vége ('\0') jelzi.
- *   Ha a számjegysorozatban olyan számjegy, vagy betű fordul elő,
- *   ami nem érvényes az adott számrendszerben, az hiba.
- *   Pl. hármas számrendszerben nem fordulhat elő a 3-as számjegy, de az A betű sem.
- * Hiba esetén egy const char* típusú kivételt kell dobni, melynek értéke
- * az Ön neptun azonosítója!
- * @param p    - pointer a sztringre
- * @param base - számrendszer alapja (0-10)
- * @return     - base számrendszerben értelmezett szám
- */
-
-int atoi(const char *p, int base = 10){
+int atoi(const char *p, int base){
     if (base < 2 || base > 10)
     {
         throw "F9ILEX";
@@ -64,5 +50,30 @@ int atoi(const char *p, int base = 10){
     return szamlalo * eredmeny;
 }
     
+
+char *strcat(const char *p1, const char *p2){
+    char *eredmeny = new char[strlen(p1) + strlen(p2) + 1];
+    strcpy(eredmeny, p1);
+    strcpy(eredmeny + strlen(p1), p2);
     
+    return eredmeny;
+}
+
+
+char *unique(char *first, char *last){
+    char *eredmeny = first;
+    while (first < last)
+    {
+        *eredmeny = *first;
+        char jelenlegibetu = *first;
+        while (first < last && *first == jelenlegibetu)
+        {
+            ++first;
+        }
+        eredmeny++;
+    }
+    return eredmeny;
     
+}
+
+}
