@@ -3,39 +3,43 @@
  * (Latin-2 kodolasu fajl. Allitsa at a kodolast,
  *  ha a tovabbi kommentek nem olvashatok helyesen!)
  *
- * Egyszerû osztály létrehozása
+ * Egyszerï¿½ osztï¿½ly lï¿½trehozï¿½sa
  */
 #include <iostream>
 using std::cout;
 using std::endl;
 
 /**
- * Az Ön feladata megvalósítani az egyes tagfüggvényeket.
- * Ahogyan halad a megvalósítással egyre több tesztesetet kell
- * lefuttatni, ezért az ELKESZULT makró értéket folyamatosan növelje a
- * feladatsorszámoknak megfelelõen!
+ * Az ï¿½n feladata megvalï¿½sï¿½tani az egyes tagfï¿½ggvï¿½nyeket.
+ * Ahogyan halad a megvalï¿½sï¿½tï¿½ssal egyre tï¿½bb tesztesetet kell
+ * lefuttatni, ezï¿½rt az ELKESZULT makrï¿½ ï¿½rtï¿½ket folyamatosan nï¿½velje a
+ * feladatsorszï¿½moknak megfelelï¿½en!
  */
-#define ELKESZULT 0
+#define ELKESZULT 1
 
 /**
  * Feladatok:
  * 1. ELKESZULT=1
- *    Valósítsa meg (definiálja) a hiányzó tagfüggvényeket! (kerulet(), terulet())
+ *    Valï¿½sï¿½tsa meg (definiï¿½lja) a hiï¿½nyzï¿½ tagfï¿½ggvï¿½nyeket! (kerulet(), terulet())
  *
  * 2. ELKESZULT=2
- *    Egészítse ki az osztályt úgy, hogy tömb is létrehozható legyen belõle
- *    (Tipp: tömb csak olyan osztályból példányosítható, aminek van paraméter
- *    nélkül hívható konstruktora)
+ *    Egï¿½szï¿½tse ki az osztï¿½lyt ï¿½gy, hogy tï¿½mb is lï¿½trehozhatï¿½ legyen belï¿½le
+ *    (Tipp: tï¿½mb csak olyan osztï¿½lybï¿½l pï¿½ldï¿½nyosï¿½thatï¿½, aminek van paramï¿½ter
+ *    nï¿½lkï¿½l hï¿½vhatï¿½ konstruktora)
  *
  */
 
 class Teglalap {
     double a, b;        // oldalak hossza
+
+    
+
 public:
     Teglalap(double, double);   // konstruktor
-    void kiir() const;          // kiírja az oldalakat
-    double kerulet() const;     // kerület kiszámítása
-    double terulet() const;     // terület kiszámítása
+    void kiir() const;          // kiï¿½rja az oldalakat
+    double kerulet() const;     // kerï¿½let kiszï¿½mï¿½tï¿½sa
+    double terulet() const;     // terï¿½let kiszï¿½mï¿½tï¿½sa
+    Teglalap();
 };
 
 Teglalap::Teglalap(double a, double b) {
@@ -50,11 +54,15 @@ void Teglalap::kiir() const {
 // ELKESZULT 1
 // 1. feladat
 double Teglalap::terulet() const {
-// Ezt Önnek kell kiegészítenie
+    return a*b;
+// Ezt ï¿½nnek kell kiegï¿½szï¿½tenie
 
 }
 
-// Itt pedig a kerület számítást kell megvalósítania
+// Itt pedig a kerï¿½let szï¿½mï¿½tï¿½st kell megvalï¿½sï¿½tania
+double Teglalap::kerulet()const{
+    return(a+b)*2;
+}
 
 
 
@@ -67,10 +75,10 @@ int main() {
     cout << "tb: ";
     tb.kiir();
 #if ELKESZULT >= 1
-    cout << "ta kerülete:" << ta.kerulet() << endl;
-    cout << "tb kerülete:" << tb.kerulet() << endl;
-    cout << "ta területe:" << ta.terulet() << endl;
-    cout << "tb területe:" << tb.terulet() << endl;
+    cout << "ta kerï¿½lete:" << ta.kerulet() << endl;
+    cout << "tb kerï¿½lete:" << tb.kerulet() << endl;
+    cout << "ta terï¿½lete:" << ta.terulet() << endl;
+    cout << "tb terï¿½lete:" << tb.terulet() << endl;
 #endif
 
 #if ELKESZULT >= 2
