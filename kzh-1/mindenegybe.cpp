@@ -26,7 +26,7 @@ public:
     };
 
     //kiiro
-    void kiir()const{std::cout <<getOra() <<":" <<getPerc() <<std::endl;}
+    void kiir()const{std::cout << getOra() << ":" << getPerc() << std::endl;}
 
     //getterek
     int getOra()const{return ora;}
@@ -41,7 +41,7 @@ public:
         this-> perc = min;
 
     }
-};
+};//class vege
 
 //balrol hozzaado 
 Ido operator+(int h, const Ido& rhs){
