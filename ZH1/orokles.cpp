@@ -6,7 +6,7 @@ class Alap{
     public:
         Alap():szam(10){};
         int getSzam()const{return szam;}
-        virtual int getDarab(){return szam;}
+        //virtual int getDarab(){return szam;}
 };
 
 class Leszarmazott : public Alap{
