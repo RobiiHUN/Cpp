@@ -7,8 +7,8 @@ class Ido{
 
 public:
     //konstruktorok
-    Ido(): ora(12), perc(23){}
-    Ido(int h, int min): ora(h), perc(min){}
+    Ido(): ora(12), perc(23){};
+    Ido(int h, int min): ora(h), perc(min){};
 
     //destruktor;
     ~Ido(){}
