@@ -1,8 +1,8 @@
 /**
- *  6. labor önellenõrzõ feladat teszt
+ *  6. labor ï¿½nellenï¿½rzï¿½ feladat teszt
  *
- *  A jporta nem pontosan ezt a tesztet futtatja, de az elvárt kimenete azonos.
- *  Ha érdeklik a részletek, nézze meg a Jporta-n a teszt forrását.
+ *  A jporta nem pontosan ezt a tesztet futtatja, de az elvï¿½rt kimenete azonos.
+ *  Ha ï¿½rdeklik a rï¿½szletek, nï¿½zze meg a Jporta-n a teszt forrï¿½sï¿½t.
  *
  */
 

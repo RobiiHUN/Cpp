@@ -4,12 +4,15 @@
 
 
 /// Utasítást kiíró és végrehajtó makró
+/// Utasítás kiíró és végrehajtó makró
 #define _(x)  std::cout << #x << std::endl; x
  
 int main() {
-_(    Monocikli m1_obj;          )
-_(    m1_obj.kiir();             )
-_(    Monocikli m2_obj = m1_obj; )
-_(    m2_obj.kiir();             )
-_(    return 0;                  )
+#if 0
+_(    Szan sz1_obj(1.1, 1);         )
+#else
+_(    Jarmu *jp = new Szan(2.2, 2); )
+_(    delete jp;                    )
+#endif
+_(    return 0;                     )
 }
