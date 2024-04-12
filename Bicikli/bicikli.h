@@ -83,16 +83,24 @@ class Bicikli: public Jarmu{
     Kerek masodik;
 
     public:
-    Bicikli(const double v = 0, const int d = 0): Jarmu(v), elso(Kerek(v)), masodik(Kerek(d))
-        {std::cout << "\tBicikli ctor "; elso.kiir();};
+    //Bicikli(const double v = 0, const int d = 0): Jarmu(v), elso(Kerek(v)), masodik(Kerek(d))
+   //     {std::cout << "\tBicikli ctor"; elso.kiir();};
     ~Bicikli()
     {
-        std::cout << "\tBicikli dtor ";
+        std::cout<<"\tBicikli dtor ";
         elso.kiir();
     }
 
+
+    Bicikli(const double v = 0, const int d = 0): Jarmu(v), elso(d), masodik(d)
+    {
+        std::cout<<"\tBicikli ctor ";
+        elso.kiir();
+    };
+
+
     Bicikli(const Bicikli& b): Jarmu(b), elso(b.elso), masodik(b.masodik){
-        std::cout << "\tBicikli copy "; 
+        std::cout<<"\tBicikli copy ";
         elso.kiir();
     }
 };
