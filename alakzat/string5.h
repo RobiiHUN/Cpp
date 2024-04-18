@@ -175,6 +175,9 @@ public:
 
 }; /// Itt az osztály deklarációjának vége
 
+
+
+
 /// Ide kerülnek a globális operátorok deklarációi.
 /// ...
 
