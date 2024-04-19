@@ -173,6 +173,7 @@ public:
 
 
 
+
 }; /// Itt az osztály deklarációjának vége
 
 
