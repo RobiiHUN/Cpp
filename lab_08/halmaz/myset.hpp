@@ -1,33 +1,50 @@
 #ifndef MYSET_HPP
 #define MYSET_HPP
 
+#define ELKESZULT 3
+
 
 template <typename T>
+
+bool equal(const T& a, const T& b){
+    return a == b;
+}
+
+template<>
+bool equal <Point>(const Point& a, const Point& b){
+    return a.getX() == b.getX() && a.getY() == b.getY();
+}
+
+
+template <typename T, size_t s = 10>
+
 class Set{
     private:
-        T* elements;
+        T array[s];
         size_t capacity;
 
     public:
-        Set():capacity(10){
-            elements = new T[capacity];
-        }
+        Set():capacity(0){}
+        virtual ~Set(){}
         size_t size() const{
             return capacity;
         }
         void insert(const T& elem){
-            
-            for(int i = 0; i < capacity; i++){
-                if(elements[i] == elem){
-                    return;
+                if (capacity == s)
+                {
+                    throw"Ez tele van mar";
                 }
-            }
-            elements[capacity] = elem;
-            capacity++;
+                else if (!isElement(elem))
+                {
+                    array[capacity] = elem;
+                    capacity++;
+                }
+
         }
-        bool isElement(const T& elem) const{
-            for(int i = 0; i < capacity; i++){
-                if(elements[i] == elem){
+
+        bool isElement(T elem){
+            for(size_t i = 0; i < capacity; i++){
+                if(equal(array[i], elem)){
                     return true;
                 }
             }
@@ -40,5 +57,10 @@ class Set{
 
 
 
+
+
 };
+bool operator==(const Point& p, const Point& q){
+            return p.getX() == q.getX() && p.getY() == q.getY();
+        }
 #endif
