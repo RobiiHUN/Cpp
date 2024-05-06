@@ -60,7 +60,9 @@
 			"unordered_map": "cpp",
 			"variant": "cpp",
 			"vector": "cpp",
-			"algorithm": "cpp"
+			"algorithm": "cpp",
+			"csignal": "cpp",
+			"set": "cpp"
 		}
 	}
 }
