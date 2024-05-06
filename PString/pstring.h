@@ -6,17 +6,15 @@
 
 class PString : public String, public Serializable{
 public:
-            PString(const char* s = "");
-            PString(char c);
+            PString();
             PString(const String& s);
+            ~PString(){}
 
             void write(std::ostream& os) const;
             void read(std::istream& is);
 
 };
 
-std::ostream& operator<<(std::ostream& os, const PString& s);
-std::istream& operator>>(std::istream& is, PString& s);
 
 #endif // PSTRING_H
 
