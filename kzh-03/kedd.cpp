@@ -10,22 +10,29 @@ public:
     virtual ~Szamlalo(){}
 };
 
-std::ostream& operator<<(std::ostream& os, const Szamlalo& b){
-    os << b.get() << std::endl;
+std::ostream& operator<<(std::ostream& os, const Szamlalo& s){
+    os << s.get() << std::endl;
     return os;
 }
 
 class Ora: public Szamlalo{
-    int ertek;
-public:
-    Ora(int o): ertek(10){}
+    int t;
+    public:
+    Ora():t(0){}
+    Ora(int a): t(0){}
     void novel(){
         Szamlalo::novel();
-        if (Szamlalo::get() > ertek){
-            std::cout << "Felkelni\n" << std::endl;
+        if (Szamlalo::get() == t){
+            throw "Felkelni\n";
             Szamlalo::set(0);
         }
     }
+    void kivetel(int a){
+        if (a == t){
+            throw "kivetel";
+        }
+    }
+
 
 };
 
