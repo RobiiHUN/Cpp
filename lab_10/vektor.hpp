@@ -28,25 +28,41 @@ public:
     /// @param first - sorozat elejére mutat
     /// @param last - utolsó elem után
     template <class InputIterator>
-    Vektor(InputIterator first, InputIterator last);
+    Vektor(InputIterator first, InputIterator last){
+        for(InputIterator it = first; it != last; ++it){
+            push_back(*it);
+        }
+    }
 
     /// push_back
     /// vektor végéhez adatot ad
     /// @param val - adat
-    void push_back(const T& val);
+    void push_back(const T& val){
+        
+        Array<T, maxsiz>::setsize(Array<T, maxsiz>::size() + 1);
+
+        Array<T, maxsiz>::at(Array<T, maxsiz>::size() - 1) = val;
+        
+    }
 
     /// back
     /// vektor utolsó adatának elérése
     /// @return referencia az utolsó adat
-    T& back();
+    T& back(){
+        return Array<T, maxsiz>::at(Array<T, maxsiz>::size() - 1);
+    }
 
     /// pop_back
     /// vektor utolsó adatának eldobása
-    void pop_back();
+    void pop_back(){
+        Array<T, maxsiz>::setsize(Array<T, maxsiz>::size() - 1);
+    }
 
     /// empty
     /// @return true, ha nincs adat
-    bool empty() const;
+    bool empty() const{
+        return this->size() == 0;
+    }
 
     /// A továbbiakban egyszerűbben hivatkozhassunk az iterator-ra, mint típusra
     typedef typename Array<T, maxsiz>::iterator iterator;
@@ -54,13 +70,32 @@ public:
     /// törli az adott pozíción levő elemet
     /// @param pos - a törlendő elemre mutató iterátor
 	/// @return az első nem törölt elemre mutató iterátor, ha végéig törölt, akkor end()
-    iterator erase(iterator pos);
+    iterator erase(iterator pos){
+        iterator it = pos;
+        for(iterator it2 = pos + 1; it2 != this->end(); ++it2){
+            *it = *it2;
+            ++it;
+        }
+        this->resize(this->size() - 1);
+        return it;
+    }
 
     /// törli az adott intervallumba eső elemeket
     /// @param first - a törlendő intervalum eleje
     /// @param last - a törlendő intervallum vége
 	/// @return az első nem törölt elemre mutató iterátor, ha végéig törölt, akkor end()
-    iterator erase(iterator first, iterator last);
+    iterator erase(iterator first, iterator last){
+        iterator it = first;
+        for(iterator it2 = last; it2 != this->end(); ++it2){
+            *it = *it2;
+            ++it;
+        }
+        this->resize(this->size() - (last - first));
+        return it;
+    }
+
+    
+  
 
  }; // Vektor sablon vége
 

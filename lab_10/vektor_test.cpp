@@ -6,7 +6,7 @@
  */
 
 
-#define ELKESZULT 0
+#define ELKESZULT 5
 
 #include <iostream>
 #include <algorithm>
@@ -17,6 +17,7 @@
 #include "vektor.hpp"
 
 #if ELKESZULT >= 12
+
 #include "mystack.hpp"
 #endif
 
@@ -58,7 +59,7 @@ int main() {
 
     try {
 
-#if ELESZULT >= 0
+#if ELESZULT >= 4
         /// létrehozunk egy funktort a kiíráshoz
         ostreamFunctor<int> intout(cout, ", ");
         /// segítségével kiírjuk az it1 adatait
@@ -73,14 +74,14 @@ int main() {
         /// A funktort a for_each paraméterlistáján példányosítsa!
         /// Próbálja ki!
         cout << "it1 (for_each): ";
-#error "itt kell kiirnia"
+        std::for_each(it1, it1+10, ostreamFunctor<int>(cout, ", "));
 		cout << endl;
 #endif // ELKESZULT >= 1
 
 #if ELKESZULT >= 2
         Vektor<double, 50> otos(8, 5.1);
         cout << "otos: ";
-#error "itt kell kiirnia"
+        std::for_each(otos.begin(), otos.end(), ostreamFunctor<double>(cout, ", "));
 		cout << endl;
 #endif // ELKESZULT >= 2
 
