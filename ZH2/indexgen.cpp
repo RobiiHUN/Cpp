@@ -3,14 +3,15 @@
 #include <vector>
 
 
-std::vector<int> indexgen(int start, int end){
+std::vector <int> indexgen(int a, int b){
     std::vector<int> index;
-    for ( int i = start; i < end; i++){
+    for (int i = a; i < b; i++)
+    {
         index.push_back(i);
     }
     return index;
+    
 }
-
 
 
 int main(){
