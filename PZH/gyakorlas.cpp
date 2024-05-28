@@ -1,74 +1,65 @@
 #include <vector>
 #include <iostream>
-#include <vector>
 
-using namespace std;
 
-template <typename T>
-void ki(const T& mat){
-
-    for (size_t i = 0; i < mat.size(); i++)
+std::vector <int> indexgen(int also, int felso){
+    std::vector<int> minden(felso - also);
+    for (int i = 0; i < felso - also; i++)
     {
-        for (size_t j = 0; j < mat[i].size(); j++)
+        minden[i] = also + i;
+    }
+    return minden;
+    
+}
+
+template<typename T, size_t M>
+class MySet{
+    T tomb[M];
+    
+public:
+    
+    MySet(){}
+
+    size_t getSize(){
+        return M;
+    }
+
+    bool contains(char a){
+        for (size_t i = 0; i < getSize(); i++)
         {
-            cout << mat[i][j] << " ";
-        }
-        cout<<endl;
-    }
-}
-
-
-
-template <typename T>
-void kiir(const T& list){
-    for (auto i = list.begin(); i!= list.end(); i++)
-    {
-        cout<< *i <<" ";
-    }
-
-}
-
-bool keres(const std::vector<int> lista, int mit){
-    for(int i = 0; i < lista.size(); i++){
-            if (mit == lista[i])
-            {
+            if(tomb[i] == a){
                 return true;
             }
-            
+        }
+        return false;
     }
-    return false;
-}
 
+    void insert(char a){
+        for (size_t i = 0; i < getSize(); i++)
+        {
+            if (!contains(a))
+            {
+                tomb[i] = a;
+                break;
+            }
+        }
+    }
 
+    
 
+};
 
 int main(){
          
-
-    std::vector <std::vector<int>    > d2(5, std::vector<int>(10, 3));
-
-    //ki(d2);
-    cout<<endl;
-    cout<<endl;
-
-    std::vector<int> nums;
-    nums.push_back(1);
-    nums.push_back(2);
-    nums.push_back(5);
-    nums.push_back(0);
-    nums.push_back(3);
-    nums.push_back(6);
-    nums.push_back(7);
-
-    kiir(nums);
-    keres(nums, 3);
+    std::vector <int> a = indexgen(10, 13);
+    //std::cout << a[0] << ',' << a[1] << ',' << a[2] << std::endl;
     
-
-
+    MySet<char, 5> t;
+    std::cout << t.contains('a') << std::endl;
+    t.insert('a');
+    std::cout << t.contains('a') << std::endl;
 
     
-
-
 
     return 0;
 }
