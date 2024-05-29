@@ -42,14 +42,6 @@ public:
     void insert(typename std::vector<T>::iterator kezd, double d){
         tomb.insert(kezd, d);
     }
-
-
-
-
-
-
-
-
 };
 
 
