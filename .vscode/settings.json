@@ -57,5 +57,6 @@
         "variant": "cpp",
         "algorithm": "cpp",
         "filesystem": "cpp"
-    }
+    },
+    "cmake.ignoreCMakeListsMissing": true
 }

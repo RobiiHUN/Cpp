@@ -1,0 +1,78 @@
+﻿#ifndef _MAX_HPP
+#define _MAX_HPP
+/**
+ * file max.hpp
+ * (UTF-8 kodolasu fajl. Allitsa at a megjenetes kodolasat,
+ *  ha a tovabbi kommentek nem olvashatok helyesen!)
+ *
+ *
+ * A C++ nem OO bővítéseinek gyakorlásához.
+ *
+ *
+ * FELADATOK:
+ *  2. Valósítson meg EBBEN a fájlban, a Sajat névtéren belül egy olyan sablont, ami
+ *     alaptípusok esetén a paraméterként kapott érték közül a nagyobbat adja.
+ *  3. Specializálja a sablont a nem_oo.h állományban deklarált Komplex típusra
+ *     úgy hogy a nagyobb abszolút értékû Komplex számot adja vissza!
+ *
+ * Ügyeljen a helyes névtér használatra!
+ *   Tipp: Használja a scope operátort, vagy nyisson névteret!
+ */
+
+#include "nem_oo.h"
+using namespace sajat;
+
+int atoi(const char *p, int base = 10){
+    int result = 0;
+    while (*p != '\0' && *p != ' '){
+        if (*p < '0' || *p > '9'){
+            throw "Nem megfelelo szamjegy!";
+        }
+        result = result * base + (*p - '0');
+        ++p;
+    }
+    return result;
+}
+
+char *strcat(const char *p1, const char *p2){
+    char *result = new char[strlen(p1) + strlen(p2) + 1];
+    strcpy(result, p1);
+    strcat(result, p2);
+    return result;
+}
+
+char *unique(char *first, char *last){
+    char *result = first;
+    while (first != last){
+        if (*first != *result){
+            ++result;
+            *result = *first;
+        }
+        ++first;
+    }
+    return result;
+}
+
+namespace sajat{
+    template <typename T>
+    T max(T a, T b){
+        return a > b ? a : b;
+    }
+
+    template <>
+    Komplex max(Komplex a, Komplex b){
+        return abs(a) > abs(b) ? a : b;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+#endif // _MAX_HPP
+
