@@ -20,40 +20,13 @@
  */
 
 #include "nem_oo.h"
-using namespace sajat;
 
-int atoi(const char *p, int base = 10){
-    int result = 0;
-    while (*p != '\0' && *p != ' '){
-        if (*p < '0' || *p > '9'){
-            throw "Nem megfelelo szamjegy!";
-        }
-        result = result * base + (*p - '0');
-        ++p;
-    }
-    return result;
-}
-
-char *strcat(const char *p1, const char *p2){
-    char *result = new char[strlen(p1) + strlen(p2) + 1];
-    strcpy(result, p1);
-    strcat(result, p2);
-    return result;
-}
-
-char *unique(char *first, char *last){
-    char *result = first;
-    while (first != last){
-        if (*first != *result){
-            ++result;
-            *result = *first;
-        }
-        ++first;
-    }
-    return result;
-}
 
 namespace sajat{
+    int abs(Komplex k){
+        return k.re * k.re + k.im * k.im;
+    }
+    
     template <typename T>
     T max(T a, T b){
         return a > b ? a : b;
@@ -63,6 +36,7 @@ namespace sajat{
     Komplex max(Komplex a, Komplex b){
         return abs(a) > abs(b) ? a : b;
     }
+
 }
 
 
