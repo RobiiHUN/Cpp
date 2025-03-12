@@ -16,11 +16,11 @@
 #include "allapotgep.h"
 #include "memtrace.h"
 
-#define ELKESZULT 0
+#define ELKESZULT 1
 
 int main() {
     GTINIT(std::cin); // Csak C(J)PORTA működéséhez kell
-    #if ELKESZULT > 0
+    #if ELKESZULT > 1
     /// Azt vizsgálja, hogy dob-e hibát a fájl megnyitásakor
         TEST(Konfig, KonfigHiba) {
             Allapotgep gep;
@@ -43,7 +43,7 @@ int main() {
         } END
     #endif // ELKESZULT > 1
 
-    #if ELKESZULT > 1
+    #if ELKESZULT > 2
     /// Kipróbálja az egyik pédakonfigot
         TEST(ParosTrimin, fajbolkonfig1) {
             Allapotgep gep;

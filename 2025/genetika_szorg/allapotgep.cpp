@@ -14,3 +14,20 @@
 #include "allapotgep.h"
 #include "memtrace.h"
 
+/* ----------------------------- FILE BEOLVASAS ----------------------------- */
+
+void Allapotgep::konfigural(const char* file_name){
+    std::ifstream file(file_name);
+
+    if (file.is_open() == false)    //ha nem sikerulne megnyitni
+    {
+        throw "F9ILEX";
+    }
+
+    alaphelyzet(); //kezdoallapotba rakjuk
+    file.close();
+    
+}
+
+
+
