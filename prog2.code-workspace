@@ -62,7 +62,10 @@
 			"vector": "cpp",
 			"algorithm": "cpp",
 			"csignal": "cpp",
-			"set": "cpp"
+			"set": "cpp",
+			"print": "cpp",
+			"queue": "cpp",
+			"stack": "cpp"
 		}
 	}
 }
