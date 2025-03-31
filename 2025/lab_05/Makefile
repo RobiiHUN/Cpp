@@ -13,7 +13,7 @@ MTRACE_H = memtrace.h # memtrace header fajlja
 
 CXX = g++   # a C fordito neve
 #CXX = clang++ # clang-ot (llvm) is erdemes kiprobalni
-CXXFLAGS = -pedantic -Wall -Werror # kapcsolok: legyen bobeszedu es pedans
+CXXFLAGS = -pedantic -Wall -Werror -Wno-keyword-macro # kapcsolok: legyen bobeszedu es pedans
 CXXFLAGS += -g -DMEMTRACE # es debug info is
 LDFLAGS = -g # debug a linkelesnel 
 

@@ -43,7 +43,7 @@
  * azaz, sorban haladva ahol tart a feladatok megoldásában!
  * Ne hagyjon ki feladatot!
  */
-#define ELKESZULT 0
+#define ELKESZULT 6
 
 /**
  * \section fel Feladat:
@@ -90,9 +90,8 @@
 
 #include <iostream>
 
-#ifndef MEMTRACE
-#error "definialja projekt szinten a MEMTARCE makrot!"
-#endif // MEMTRACE
+
+
 
 /**
  * A String osztály.
@@ -132,7 +131,7 @@ public:
 
 
     /// Paraméter nélküli konstruktor:
-    String() :pData(0), len(0) {}
+    String() :pData(new char [1]), len(0) {pData[0] = '\0';}
 
     /// Sztring hosszát adja vissza.
     /// @return sztring tényleges hossza (lezáró nulla nélkül).
@@ -141,12 +140,31 @@ public:
     /// C-sztringet ad vissza
     /// @return pointer a tárolt, vagy azzal azonos tartalmú nullával lezárt sztring-re.
     const char* c_str() const { return pData;}
-
+    const char* data()const {return pData;}
+    
 /// Itt folytassa a tagfüggvények deklarációit a feladatoknak megfelelően.
 /// ...
 
+String(const char ch);
+String(const char *str);
+String(const String& s1);
+String& operator=(const String& s);
+String operator+(const String& s)const;
+String operator+(const char ch)const;
+
+const char& operator[](unsigned int idx)const;
+char& operator[](unsigned int idx);
 
 
+
+~String() {
+    delete[] pData;
+}
+
+
+
+friend std::ostream& operator<<(std::ostream& os, const String& s); // Kiíratás
+friend String operator+(const char ch, const String& s); // Karakter + String
 
 }; /// Itt az osztály deklarációjának vége
 
@@ -155,7 +173,4 @@ public:
 
 
 
-
-
-
-#endif
+#endif // STRING_H

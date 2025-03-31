@@ -56,7 +56,15 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "algorithm": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "print": "cpp",
+        "queue": "cpp",
+        "stack": "cpp",
+        "__assertion_handler": "cpp",
+        "__availability": "cpp",
+        "version": "cpp",
+        "format": "cpp",
+        "system_error": "cpp"
     },
     "cmake.ignoreCMakeListsMissing": true
 }
