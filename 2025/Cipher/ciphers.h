@@ -11,6 +11,11 @@
 #include <vector>
 #include "memtrace.h"
 
+
+
+/* ========================================================================== */
+/*                                   CIPHER                                   */
+/* ========================================================================== */
 /**
  * Az ős osztály interfésze
  */ 
@@ -39,16 +44,57 @@ public:
     virtual ~Cipher() { };
 };
 
+
+/* ========================================================================== */
+/*                                CAESARCIPHER                                */
+/* ========================================================================== */
+
+
 //Osztályok, amiket meg kell csinálni a leírások és az osztálydiagram alapján
-class CaesarCipher {
+class CaesarCipher:public Cipher {
+    int shift;
+public: 
+    CaesarCipher(int);
+    std::string encode(const std::string&);
+    std::string decode(const std::string&);
+    Cipher* clone() const;
 
 };
 
-class MyCipher {
+class MyCipher:public Cipher{
+    std::string key;
+    int offset;
+public:
+    MyCipher(std::string);
+    MyCipher(std::string, int);
+    Cipher* clone() const;
+    std::string encode(const std::string&);
+    std::string decode(const std::string&);
 
 };
 
-class CipherQueue {
+
+/* ========================================================================== */
+/*                                 CIPHERQUEUE                                */
+/* ========================================================================== */
+
+class CipherQueue:public Cipher {
+    Cipher** tomb;
+    size_t meret;
+
+public:
+    CipherQueue();
+    CipherQueue(CipherQueue const &);
+    void add(Cipher* chipher);
+    ~CipherQueue();
+
+    std::string encode(const std::string&);
+    std::string decode(const std::string&);
+
+    Cipher* clone() const;
+    
+
+
 
 };
 
