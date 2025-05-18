@@ -64,7 +64,9 @@
         "__availability": "cpp",
         "version": "cpp",
         "format": "cpp",
-        "system_error": "cpp"
+        "system_error": "cpp",
+        "iterator": "cpp",
+        "memory": "cpp"
     },
     "cmake.ignoreCMakeListsMissing": true
 }

@@ -10,12 +10,12 @@
  * ELKESZULT == 1 estén az Ön által elkészítendő Alaptípus osztálysablont próbálja ki.
  * ELKESZULT >= 2 esetén pedig egy egyszerű függvénysablont kell elkészítenie.
 */
-#define ELKESZULT 0
+#define ELKESZULT 2
 
 #include <iostream>
 #include "integer.h"
 
-#if ELKESZULT > 0
+#if ELKESZULT > 1
 # include "alaptipus.hpp"
 #endif // ELKESZULT > 0
 

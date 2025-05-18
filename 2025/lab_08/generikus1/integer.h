@@ -5,6 +5,10 @@
 #ifndef INTEGER_H
 #define INTEGER_H
 
+#include <iostream>
+
+
+
 
 /// Integer osztály.
 /// A konverziós operátorok és a C automatikus konverziós szabályai
@@ -20,4 +24,9 @@ public:
     virtual ~Integer() {}
 };
 
+
+
+
 #endif // INTEGER_H
+
+
