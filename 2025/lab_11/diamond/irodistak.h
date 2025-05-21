@@ -17,7 +17,7 @@ typedef int csop_t;             // csoport típusa
 /**
  * Csoportvezető
  */
-class  CsopVez :         public Alkalmazott {
+class  CsopVez :virtual public Alkalmazott {
     csop_t   csoport;           // csoport azon.
 public:
     CsopVez(const std::string& n, double f, csop_t cs)
@@ -42,7 +42,7 @@ public:
 /**
  * Határozott idejű alkalmazott
  */
-class HatIdeju :         public Alkalmazott {
+class HatIdeju :virtual public Alkalmazott {
 protected:
     time_t  ido;                // szerződése lejár ekkor
 public:
@@ -70,10 +70,10 @@ public:
  */
 class HatIdCsV :public CsopVez, public HatIdeju {
 public:
-    HatIdCsV(const  std::string& n, double f, csop_t cs, time_t t)
-        :                       // virtuális alaposztálynál ide kell majd valami
-          CsopVez(n, f*2, cs),  // szándékosan más fizetést kap,
-          HatIdeju(n, f*10, t)  // hogy látható legyen az adatduplikáció
+    HatIdCsV(const std::string& n, double f, csop_t cs, time_t t)
+        : Alkalmazott(n, f), 
+          CsopVez(n, f*2, cs),
+          HatIdeju(n, f*10, t)
     {}
 
     void kiir(std::ostream& os = std::cout) const {
@@ -90,8 +90,8 @@ public:
 class HatIdCsVezH :public HatIdCsV {
 public:
     HatIdCsVezH(const std::string& n, double f, time_t t, CsopVez& kit)
-        :                        // virtuális alaposztálynál ide kell majd valami
-          HatIdCsV(n, f, kit.getCs(), t)// alaposztály
+        : Alkalmazott(n, f), 
+          HatIdCsV(n, f, kit.getCs(), t)
     {}
 
     void kiir(std::ostream& os = std::cout) const {
