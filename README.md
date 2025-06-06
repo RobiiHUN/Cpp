@@ -20,10 +20,7 @@
 - [📖 About](#-about)
 - [💡 Features](#-features)
 - [🛠️ Structure](#️-structure)
-- [🚀 Getting Started](#-getting-started)
-- [📌 Usage](#-usage)
-- [🧪 Testing](#-testing)
-- [📬 Contact](#-contact)
+
 
 ---
 
